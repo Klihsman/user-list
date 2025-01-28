@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user-service.service';
 import IUser from '../../types/user.type';
-import { NgbToast } from '@ng-bootstrap/ng-bootstrap'; // Optional: Import if using specific services
 
 @Component({
   selector: 'app-user-list',
