@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>User List</h1>
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by name"
+      aria-label="Search by name"
+      aria-describedby="basic-addon2"
+      [(ngModel)]="filterText"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+      *ngFor="let user of filterUsers()"
+    >
+      <app-user-card [user]="user"></app-user-card>
+    </div>
+  </div>
+
+  <!-- Success Toast -->
+  @if (showSuccessToast) {
+    <ngb-toast
+      (hidden)="showSuccessToast = false"
+      [autohide]="true"
+      [delay]="2000"
+      class="bg-success text-white"
+    >
+      The list has been loaded
+    </ngb-toast>
+  }
+
+  <!-- Error Toast -->
+  @if (showErrorToast) {
+    <ngb-toast
+      (hidden)="showErrorToast = false"
+      [autohide]="true"
+      [delay]="2000"
+      class="bg-danger text-white"
+    >
+      The list has not been loaded
+    </ngb-toast>
+  }
+</div>
